@@ -1,0 +1,43 @@
+@startuml
+' Definir las clases principales
+
+class MainActivity {
+    - SharedPreferences sharedPreferences
+    - TextView greetingTextView
+    - TextView userNameTextView
+    - ConstraintLayout mainLayout
+    - Handler handler
+    + onCreate(Bundle): void
+    + onResume(): void
+    - setGreetingMessage(): void
+    - setUserName(): void
+    - applyBackground(): void
+}
+
+class PrincipalActivity {
+    - EditText nameEditText
+    - TextView nameTextView
+    - UserViewModel userViewModel
+    + onCreate(Bundle): void
+}
+
+class ConfiguracionActivity {
+    - SharedPreferences sharedPreferences
+    + onCreate(Bundle): void
+    - setColorAndReturn(int): void
+    - setImageAndReturn(int): void
+    - navigateToMainActivity(): void
+}
+
+class UserViewModel {
+    - MutableLiveData<String> userName
+    + getUserName(): LiveData<String>
+    + saveUserName(String): void
+    - loadUserName(): void
+}
+
+' Definir relaciones entre las clases
+
+PrincipalActivity --> UserViewModel : utiliza
+
+@enduml

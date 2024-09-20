@@ -20,7 +20,7 @@ public class MainActivity extends AppCompatActivity {
     private SharedPreferences sharedPreferences;
     private TextView greetingTextView, userNameTextView;
     private ConstraintLayout mainLayout;
-    private Handler handler = new Handler();
+    private final Handler handler = new Handler();
 
     @SuppressLint("MissingInflatedId")
     @Override
