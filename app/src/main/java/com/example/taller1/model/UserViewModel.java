@@ -1,6 +1,7 @@
 package com.example.taller1.model;
 
 import android.app.Application;
+import android.content.Context;
 import android.content.SharedPreferences;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
@@ -8,12 +9,12 @@ import androidx.lifecycle.MutableLiveData;
 
 public class UserViewModel extends AndroidViewModel {
 
-    private MutableLiveData<String> userName;
-    private SharedPreferences sharedPreferences;
+    private final MutableLiveData<String> userName;
+    private final SharedPreferences sharedPreferences;
 
     public UserViewModel(Application application) {
         super(application);
-        sharedPreferences = application.getSharedPreferences("MyAppPrefs", application.MODE_PRIVATE);
+        sharedPreferences = application.getSharedPreferences("MyAppPrefs", Context.MODE_PRIVATE);
         userName = new MutableLiveData<>();
         loadUserName();
     }
